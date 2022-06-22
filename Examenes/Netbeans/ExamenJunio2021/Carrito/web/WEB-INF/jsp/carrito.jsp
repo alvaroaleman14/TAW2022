@@ -70,9 +70,11 @@
             <tr>
             <th>Id del producto</th>
             <th>Descripción</th>
-            <th>Cantidad comprada</th>
+            <th>Cantidad</th>
             <th>Fabricante</th>
             <th>Coste</th>
+            <th></th>
+            <th></th>
             </tr>
             <%
                 if (!disponibles.isEmpty()){
@@ -84,6 +86,12 @@
                 <td><%=prod.getCantidad()%></td>
                 <td><%=prod.getFabricante()%></td>
                 <td><%=prod.getCoste()%></td>
+                <td><input type="text" name="cantidad" size="2"/></td>
+                <td>
+            <form action="NuevoProductoServlet?idpedido=<%=p.getPedidoId()%>&idproducto=<%=prod.getProductoId()%>" method="POST">
+                <input type="submit" value="Añadir"/>
+            </form>
+                </td>
             </tr>
             <%
                 }
