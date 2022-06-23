@@ -1,0 +1,19 @@
+new - other - glasshfish - jdbc connection pool 
+new - other - glasshfish - jdbc resource
+new - other - persistence - entity classes from database ---- entity
+new - other - persistence - session beans for entity classes ---- facade alias dao
+
+
+request.getParameter recoge un string del enlace de la URL
+las consultas se hacen en el facade
+request.setAttribute pasa un atributo al jsp
+request.getAttribute recoge un atributo en el jsp
+request.getRequestDispatcher("URL").forward(request,response) ---- hace que se envie todo al jsp
+response.sendRedirect(request.getContextPath() + "URL" ); ---- nos redirige a la url proporcionada
+
+Query q;
+q = this. q = this.getEntityManager().createQuery("CONSULTA SQL");
+q.setParameter("lo que pasamos en la consulta",variable en el programa) 
+
+
+actualizar en el servlet, llamando al facade, el parametro que hayamos cambiado y queremos que se actualice
