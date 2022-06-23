@@ -7,6 +7,7 @@ package servlets;
 
 import dao.ClienteFacade;
 import dao.PedidoFacade;
+import dao.PedidoProductoFacade;
 import dao.ProductoFacade;
 import entity.Cliente;
 import entity.Pedido;
@@ -34,6 +35,7 @@ public class CarritoServlet extends HttpServlet {
     @EJB ClienteFacade cf;
     @EJB ProductoFacade pf;
     @EJB PedidoFacade pedf;
+    @EJB PedidoProductoFacade ppf;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -88,7 +90,7 @@ public class CarritoServlet extends HttpServlet {
       }
       
      
-      BigDecimal costeTotal = pf.getCosteTotal(p);
+      BigDecimal costeTotal = ppf.getCosteTotal(p);
               
                    
       request.setAttribute("pedido", p);

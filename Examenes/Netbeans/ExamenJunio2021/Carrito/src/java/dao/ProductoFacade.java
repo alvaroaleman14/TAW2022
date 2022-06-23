@@ -41,17 +41,4 @@ public class ProductoFacade extends AbstractFacade<Producto> {
         return q.getResultList();
     }
 
-    public BigDecimal getCosteTotal(Pedido p) {
-        Query q;
-        BigDecimal coste;
-
-        Integer idPedido = p.getPedidoId();
-
-        q = this.getEntityManager().createQuery("SELECT prod.coste FROM Producto prod JOIN PedidoProducto ON prod.producto_id = PedidoProducto.producto_id "
-                + "WHERE PedidoProducto.pedido_id = :idPedido");
-        q.setParameter("idPedido", idPedido);
-
-        coste = (BigDecimal) q.getSingleResult();
-        return coste;
-    }
 }

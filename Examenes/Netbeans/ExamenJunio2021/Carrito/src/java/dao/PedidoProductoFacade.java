@@ -34,4 +34,17 @@ public class PedidoProductoFacade extends AbstractFacade<PedidoProducto> {
     public PedidoProductoFacade() {
         super(PedidoProducto.class);
     }
+    
+        public BigDecimal getCosteTotal(Pedido p) {
+        Query q;
+        BigDecimal coste;
+
+        Integer idPedido = p.getPedidoId();
+
+        q = this.getEntityManager().createQuery("SELECT SUM(pp.cantidad * pr.coste) FROM PedidoProducto pp, Producto pr WHERE pp.pedidoProductoPK.pedidoId = :idPedido");
+        q.setParameter("idPedido", idPedido);
+
+        coste = (BigDecimal) q.getSingleResult();
+        return coste;
+    }
 }
