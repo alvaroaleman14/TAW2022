@@ -12,4 +12,4 @@
     <property name="User" value="carrito"/>
     <property name="Password" value="carrito"/>
   </jdbc-connection-pool>
-</resources>
+

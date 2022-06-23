@@ -14,6 +14,7 @@ import entity.PedidoProducto;
 import entity.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -49,6 +50,7 @@ public class CarritoServlet extends HttpServlet {
       String idpedido = (String)request.getParameter("idpedido");
       String idcliente = (String)request.getParameter("idcliente");
       
+      
        //Buscamos el pedido
       Pedido p = pedf.find(Integer.parseInt(idpedido));   
       
@@ -59,12 +61,14 @@ public class CarritoServlet extends HttpServlet {
           ids.add(producto.getProductoId());
       }
       
+
+      
       //Hacemos la lista de los productos disponibles
       List<Producto> productosDisponibles = pf.findDisponibles(ids);
       
      
       //En caso de que el pedido no exista
-      if (idpedido == null || idpedido.isEmpty() || p == null){
+      if (idpedido == null || idpedido.isEmpty()){
           
           //Cogemos el cliente
           Cliente c = cf.find(Integer.parseInt(idcliente));
@@ -83,10 +87,14 @@ public class CarritoServlet extends HttpServlet {
           cf.edit(c);
       }
       
-      
+     
+      BigDecimal costeTotal = pf.getCosteTotal(p);
+              
+                   
       request.setAttribute("pedido", p);
       request.setAttribute("cliente", p.getClienteId());
       request.setAttribute("disponibles", productosDisponibles);
+      request.setAttribute("costeTotal", costeTotal);
         
       request.getRequestDispatcher("/WEB-INF/jsp/carrito.jsp").forward(request,response);
         

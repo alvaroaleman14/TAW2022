@@ -3,6 +3,7 @@
     Created on : 21-jun-2022, 17:21:04
     Author     : alvar
 --%>
+<%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.List"%>
 <%@page import="entity.Producto"%>
 <%@page import="entity.PedidoProducto"%>
@@ -20,6 +21,7 @@
     <%
         Pedido p = (Pedido)request.getAttribute("pedido");
         List<Producto> disponibles = (List)request.getAttribute("disponibles");
+        BigDecimal costeTotal = (BigDecimal)request.getAttribute("costeTotal");
 
         if (p.getPedidoId() == null){
             p = new Pedido();
@@ -41,6 +43,7 @@
          <%
              }else{
              %>
+             <h3>Coste total: <%=costeTotal%> </h3>     
         <table border="1">
             <tr>
             <th>Id del producto</th>
@@ -86,12 +89,12 @@
                 <td><%=prod.getCantidad()%></td>
                 <td><%=prod.getFabricante()%></td>
                 <td><%=prod.getCoste()%></td>
+            <form action="NuevoProductoServlet" method="POST">
+                <input type="hidden" name="idpedido" value="<%=p.getPedidoId()%>">
+                <input type="hidden" name="idproducto" value="<%=prod.getProductoId()%>">
                 <td><input type="text" name="cantidad" size="2"/></td>
-                <td>
-            <form action="NuevoProductoServlet?idpedido=<%=p.getPedidoId()%>&idproducto=<%=prod.getProductoId()%>" method="POST">
-                <input type="submit" value="Añadir"/>
+                <td><input type="submit" value="Añadir"/></td> 
             </form>
-                </td>
             </tr>
             <%
                 }

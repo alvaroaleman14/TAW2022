@@ -6,9 +6,11 @@
 package dao;
 
 import entity.Pedido;
+import java.math.BigDecimal;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +30,8 @@ public class PedidoFacade extends AbstractFacade<Pedido> {
     public PedidoFacade() {
         super(Pedido.class);
     }
+
+
+
     
 }
