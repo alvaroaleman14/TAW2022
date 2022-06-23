@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Jun 24 00:16:17 CEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-92a3-3085-0000071733c8 
+on database directory D:\Universidad\Tecnologías de Aplicaciones Web\GithubTAW\TAW2022\Examenes\Intellij\CarritoSpringBoot-2\carrito with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/C:/Users/alvar/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=D:\Universidad\Tecnologías de Aplicaciones Web\GithubTAW\TAW2022\Examenes\Intellij\CarritoSpringBoot-2
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
